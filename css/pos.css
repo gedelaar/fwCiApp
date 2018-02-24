@@ -1,0 +1,22 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 30-okt-2016, 15:48:24
+    Author     : gerard
+*/
+
+.bt {
+    display:flex;
+    width:200px;
+    height:100px;
+}
+
+.afrekenen {
+    display:flex;
+    width: 30%;
+    float:left;
+    margin-top: 300px;
+}

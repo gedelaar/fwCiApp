@@ -1,0 +1,161 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 10-okt-2016, 20:06:21
+    Author     : gerard
+*/ 
+
+
+
+*{
+    padding : 0;
+    margin : 1px 0px 2px 0px;
+    border : 0;
+}
+body{
+    background-image : url(' bi-background-plum.png ');
+    background-attachment : scroll;
+    background-size : 100% auto;
+}
+.blended_grid{
+    display : block;
+    width : 100%;
+    overflow : auto;
+    margin : 10px auto 0 auto;
+}
+.leftColumn{
+    background-color : rgba(30, 32, 86, 0.71);
+    float : left;
+    clear : none;
+    height : 100%;
+    width : 20%;
+    overflow: scroll;
+}
+.rightColumn{
+    background-color : rgba(30, 32, 86, 0.71);
+    float : left;
+    clear : none;
+    height : 100%;
+    width : 30%;
+    overflow: scroll;
+}
+.midColumn{
+    background-color : rgba(30, 32, 86, 0.71);
+    float : left;
+    clear : none;
+    height : 100%;
+    width : 50%;
+    overflow: scroll;
+}
+
+.topBanner{
+    background-color : rgba(0, 0, 65, 0.87);
+    float : left;
+    clear : none;
+    height : 5%;
+    width : 100%;
+}
+.leftContent1{
+    background-color : rgba(235, 0, 0, 0.5);
+    float : left;
+    clear : none;
+    height : 100%;
+    width : 50%;
+    overflow: scroll;
+}
+.leftContent2{
+    background-color : rgba(235, 0, 0, 0.5);
+    float : right;
+    clear : none;
+    height : 100%;
+    width : 50%;
+    overflow: scroll;
+}
+.midContent1{
+    background-color : rgba(255, 117, 65, 0.93);
+    float : left;
+    clear : none;
+    height : 65%;
+    width : 100%;
+    overflow: scroll;
+}
+.midContent2{
+    background-color : rgb(66, 244, 194);
+    float : left; 
+    clear : none;
+    height : 5%;
+    width : 100%;
+    overflow: no-display;
+}
+.midContent3{
+    background-color : rgb(66, 244, 194);
+    float : left;
+    clear : none;
+    height : 5%;
+    width : 100%;
+    overflow: no-display;
+}
+.midContent4{
+    background-color : rgb(66, 244, 194);
+    float : left;
+    clear : none;
+    height : 5%;
+    width : 100%;
+    overflow: no-display;
+}
+.midContent5{
+    background-color : rgb(66, 244, 194);
+    float : left;
+    clear : none;
+    height : 5%;
+    width : 100%;
+    overflow: no-display;
+}
+.midContent6{
+    background-color : rgb(66, 244, 194);
+    float : left;
+    clear : none;
+    height : 5%;
+    width : 100%;
+    overflow: no-display;
+}
+.rightContent1{
+    background-color : rgb(66, 244, 194);
+    float : left;
+    clear : none;
+    height : 50%;
+    width : 100%;
+    overflow: scroll;
+}
+.rightContent2{
+    background-color : rgb(65, 226, 244);
+    float : left;
+    clear : none;
+    height : 50%;
+    width : 100%;
+    overflow: scroll;
+}
+.bottomBanner{
+    background-color : rgba(0, 0, 0, 0.5);
+    float : left;
+    clear : none;
+    height : 30%;
+    width : 100%;
+}
+div {
+ //   position:fixed !important;
+ //   position:absolute;
+ //   top:0;
+ //   right:0;
+ //   bottom:0;
+ //   left:0;
+}
+.main_container{
+    padding-left:10px;
+}
+.sel {
+    color: blue;
+}
