@@ -183,10 +183,9 @@ class leden_model extends CI_Model {
 
         if ($query->num_rows() > 0) {
             foreach ($query->result() as $rij) {
-			    $this->poule = $rij->poule;
+                $this->poule = $rij->poule;
                 $this->code = $rij->code;
                 if ($this->check_bar()) {
-					//echo "hier";
                     $this->add_bardienst(0, $rij->poule, $rij->code, "");
                 }
             }
