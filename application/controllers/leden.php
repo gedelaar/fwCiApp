@@ -15,41 +15,39 @@ class leden extends CI_Controller {
     //put your code here
 
     function getall() {
-        $this->load->model('leden_model');
         $data['query'] = $this->leden_model->leden_getall();
-        //print_r($data);
         $this->load->view('leden_getall', $data);
     }
 
     function nobardienst($id) {
-        //session_start();
-        $this->load->model('leden_model');
-        $newid = substr($id, 1, substr($id, 0, 1));
-        $data['query'] = $this->leden_model->leden_nobar($newid, 9);
-        $this->feedback_mail();
-        $this->mail_all();
+        $this->UpdateBardienst($id, 9);
     }
 
     function neverbardienst($id) {
-        $this->load->model('leden_model');
-        $newid = substr($id, 1, substr($id, 0, 1));
-		//echo "<br>".$newid;
-		//echo "<br>".$id;
-        $data['query'] = $this->leden_model->leden_nobar($newid, 8);
-        $this->feedback_mail();
-        $this->mail_all();
+        $this->UpdateBardienst($id, 8);
     }
 
     function yesbardienst($id) {
-        $this->load->model('leden_model');
-        $newid = substr($id, 1, substr($id, 0, 1));
-        $data['query'] = $this->leden_model->leden_yesbar($newid, 2);
-        $this->feedback_mail();
+        $this->UpdateBardienst($id, 2);
         echo "Uw reactie is verwerkt. Bedankt hiervoor.";
     }
 
+    private function UpdateBardienst($id, $code) {
+        if ($id < 5) {
+            $this->leden_model->leden_yesbar($this->CreateNewId($id), $code);
+            $this->feedback_mail();
+        } else {
+            $this->leden_model->leden_nobar($this->CreateNewId($id), $code);
+            $this->feedback_mail();
+            $this->mail_all();
+        }
+    }
+
+    private function CreateNewId($id) {
+        return(substr($id, 1, substr($id, 0, 1)));
+    }
+
     function vul_diensten() {
-        $this->load->model('leden_model');
         $this->load->model('functions');
         $data['query'] = $this->leden_model->vul_bar_init();
         $data['query'] = $this->leden_model->vul_chauffeur_init();
@@ -59,32 +57,25 @@ class leden extends CI_Controller {
 
     //toevoegen van een lid dat geen bardienst hoeft te draaien
     function bar_uitzondering_lid($id) {
-        $this->load->model('leden_model');
         $this->leden_model->vul_uitzondering_lid_in($id);
     }
 
     //toevoegen van een team cq poule dat geen bardienst draait.
     function bar_uitzondering_team($poule) {
-        $this->load->model('leden_model');
         $this->leden_model->vul_uitzondering_team_in($poule);
     }
 
     function mail_all() {
-        $this->load->model('leden_model');
         $this->leden_model->mail_selection();
         echo "Uw reactie is verwerkt. Bedankt hiervoor.";
-        //echo $this->email->print_debugger();
         echo "De mail is verzonden.";
     }
 
     function feedback_mail() {
-        $this->load->model('leden_model');
         $this->leden_model->mail_selection_feedback();
-        //echo "het feedback formulier is verstuurd";
     }
 
     function herinner_bar_mail() {
-        $this->load->model('leden_model');
         $this->leden_model->mail_selection_herinnering();
         echo "Uw reactie is verwerkt. Bedankt hiervoor.";
         //echo $this->email->print_debugger();
@@ -95,8 +86,8 @@ class leden extends CI_Controller {
         $this->load->library('email');
         $this->email->from('forwodians.basketbal@gmail.com', 'FW');
         $this->email->to('<test@edelaar.nl>, <23872873de21f2@ikbenspamvrij.nl>');
-       // $this->email->to('test2@edelaar.nl');
-       // $this->email->to('test3@edelaar.nl');
+        // $this->email->to('test2@edelaar.nl');
+        // $this->email->to('test3@edelaar.nl');
         $this->email->reply_to('ge@edelaar.nl', 'bbfw');
 //        $this->email->cc('another@another-example.com');
         //$this->email->bcc('bcc-fw@edelaar.nl');
@@ -104,9 +95,9 @@ class leden extends CI_Controller {
         $this->email->message('testmail');
         $this->email->attach('/home/sites/forwodians.nl/web/temp/mini_spelregels.pdf');
         $this->email->attach('/home/sites/forwodians.nl/web/temp/minispelregels_samenvatting.pdf');
-		echo "<pre>";
+        echo "<pre>";
         print_r($this->email);
-		echo "</pre>"; 
+        echo "</pre>";
 
         $this->email->send();
         echo "<br>===<br>";
@@ -167,7 +158,7 @@ class leden extends CI_Controller {
       } */
 
     function read_leden() {
-		
+
         $this->load->model('leden_model');
         $this->leden_model->read_leden_excel();
         echo "<br>klaar, leden ingelezen";
